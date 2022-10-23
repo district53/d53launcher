@@ -67,7 +67,7 @@
 
 <div class="flex w-full justify-between py-4">
 	<div>
-		<div class="bg-slate-600 py-1 px-2 flex items-center">
+		<div class="bg-slate-600 py-1 px-2 flex items-center ml-5">
 			<Search />
 			<input type="text" class="bg-transparent appearance-none border-0 ml-2 outline-none" bind:value={$filterValue} placeholder="Search..." />
 		</div>

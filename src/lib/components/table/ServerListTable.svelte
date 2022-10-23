@@ -137,7 +137,7 @@
 ]} />
 	{/if}
 
-	<h2 class="text-xl font-bold">All Servers</h2>
+	<h2 class="text-xl font-bold ml-5">All Servers</h2>
 	<Table selectedRow={selectedRow} data={servers} columns={[
     {
         type: 'display',

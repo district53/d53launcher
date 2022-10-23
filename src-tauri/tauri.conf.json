@@ -1,8 +1,8 @@
 {
     "$schema": "../node_modules/@tauri-apps/cli/schema.json",
     "build": {
-        "beforeBuildCommand": "npm run sveltekit:build",
-        "beforeDevCommand": "npm run sveltekit:dev",
+        "beforeBuildCommand": "yarn sveltekit:build",
+        "beforeDevCommand": "yarn sveltekit:dev",
         "devPath": "http://localhost:5173",
         "distDir": "../build"
     },
@@ -42,6 +42,8 @@
                     "$APP/preferences.json",
                     "$APP/user.dat",
                     "$APP/minetest.mtlauncher.conf",
+                    "$APP/district53.d53launcher.conf",
+                    "$APP/district53.merged.conf",
                     "$APP/minetest.merged.conf",
                     "$APP",
                     "$APP/versions",
@@ -78,7 +80,7 @@
                 "icons/icon.icns",
                 "icons/icon.ico"
             ],
-            "identifier": "world.minetest.mtlauncher",
+            "identifier": "world.district.d53launcher",
             "longDescription": "",
             "macOS": {
                 "entitlements": null,
