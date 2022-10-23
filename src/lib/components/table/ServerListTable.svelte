@@ -58,7 +58,7 @@
 	<FullLoader />
 {:else}
 	{#if showFavourites && $favouriteServers.length}
-	<h2 class="text-xl font-bold">Favourite Servers</h2>
+	<h2 class="text-xl font-bold ml-5">Favourite Servers</h2>
 	<Table selectedRow={selectedRow} data={favouriteServers} columns={[
     {
         type: 'display',
