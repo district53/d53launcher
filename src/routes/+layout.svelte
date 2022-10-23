@@ -133,6 +133,7 @@
 	{#if passwordAdded}
 		<Navbar>
 			<svelte:fragment slot="left">
+				<NavbarItem href="#" label="Profile" />
 				<NavbarItem href="/news" label="News" />
 				<NavbarItem href="/games" label="Games" />
         <NavbarItem href="/screenshots" label="Screenshots" />
