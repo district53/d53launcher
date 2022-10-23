@@ -76,13 +76,13 @@
 </div>
 
 <table class="w-full text-sm" {...$tableAttrs}>
-	<thead class="bg-emerald-700">
+	<thead class="bg-thead table-text text-align-left">
 	{#each $headerRows as headerRow (headerRow.id)}
 		<Subscribe rowAttrs={headerRow.attrs()} let:rowAttrs>
 			<tr {...rowAttrs}>
 				{#each headerRow.cells as cell (cell.id)}
 					<Subscribe attrs={cell.attrs()} let:attrs props={cell.props()} let:props>
-						<th class="px-4 py-1 hover:cursor-pointer" {...attrs} on:click={props.sort.toggle}>
+						<th class="px-4 py-1 hover:cursor-pointer " {...attrs} on:click={props.sort.toggle}>
 							<div class="inline-flex items-center">
 								<Render of={cell.render()} />
 								{#if !props.sort.disabled}

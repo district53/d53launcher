@@ -170,7 +170,7 @@
 				</div>
 				<div class="flex justify-center">
 					{#if $selectedVersion.hasOwnProperty('installed') && !$selectedVersion.installed}
-						<button on:click={async () => await install($selectedVersion)} class="bg-emerald-500 hover:bg-emerald-400 p-4 font-bold text-white flex flex-col items-center">
+						<button on:click={async () => await install($selectedVersion)} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
 							{#if installing}
 								<div>Installing...</div>
 								<div class="font-medium text-sm">please be patient :)</div>
@@ -180,7 +180,7 @@
 							{/if}
 						</button>
 					{:else if $selectedServer.hasOwnProperty('address')}
-						<button on:click={() => doOpenServer($selectedServer, $username, $password, $saveIdentity, $selectedVersion)} class="bg-emerald-500 hover:bg-emerald-400 p-4 font-bold text-white flex flex-col items-center">
+						<button on:click={() => doOpenServer($selectedServer, $username, $password, $saveIdentity, $selectedVersion)} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
 							<div>Play</div>
 							<div class="font-medium text-sm">{$selectedServer.address}:{$selectedServer.port || 30000}</div>
 						</button>
@@ -207,9 +207,9 @@
 				<div class="pb-4">
 					<TextBox bind:value={tempConfirmPass} isPassword placeholder="Confirm Password" />
 				</div>
-				<div class="flex w-full justify-end">
+				<div class="flex w-full justify-center">
 					{#if (tempConfirmPass && tempPass) && tempConfirmPass === tempPass}
-						<Button on:click={() => initFirstTime()} class="bg-emerald-500 hover:bg-emerald-400 py-2 rounded-md">
+						<Button on:click={() => initFirstTime()} class="bg-solar-orange bg-solar-orange-hover py-2 rounded-md">
 							Set
 						</Button>
 					{/if}
@@ -227,9 +227,9 @@
 				<div class="pb-4">
 					<TextBox bind:value={tempPass} isPassword placeholder="Password" on:keypress={checkKeyInput}  />
 				</div>
-				<div class="flex w-full justify-end">
+				<div class="flex w-full justify-center">
 					{#if tempPass}
-						<Button on:click={() => login()} class="bg-emerald-500 hover:bg-emerald-400 py-2 rounded-md">
+						<Button on:click={() => login()} class="bg-solar-orange bg-solar-orange-hover py-2 rounded-md">
 							Login
 						</Button>
 					{/if}

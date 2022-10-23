@@ -73,7 +73,7 @@
 				<div class="flex flex-col items-end justify-end">
 					{#if isSupported}
 						<div class="flex flex-row">
-							<Check class="bg-emerald-500 w-6 h-6 mr-2" circle=true />
+							<Check class="bg-solar-orange w-6 h-6 mr-2" circle=true />
 							<span>
 								Supports version <strong>{$selectedVersion.name}</strong>
 							</span>
@@ -82,7 +82,7 @@
 					<div class="pt-4">
 						{#if $selectedVersion.installed}
 							{#if !isInstalled}
-							<button on:click={async () => await install(packageInfo.url, $selectedVersion, pack)} class="bg-emerald-500 hover:bg-emerald-400 p-4 font-bold text-white flex flex-col items-center">
+							<button on:click={async () => await install(packageInfo.url, $selectedVersion, pack)} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
 								{#if installing}
 									<div>Installing...</div>
 									<div class="font-medium text-sm">please be patient :)</div>
@@ -92,7 +92,7 @@
 								{/if}
 							</button>
 							{:else}
-								<button on:click={async () => await openGame(pack, $selectedVersion.name)} class="bg-emerald-500 hover:bg-emerald-400 p-4 font-bold text-white flex flex-col items-center">
+								<button on:click={async () => await openGame(pack, $selectedVersion.name)} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
 									<div>Launch Game</div>
 									<div class="font-medium text-sm">version {$selectedVersion.name}</div>
 								</button>

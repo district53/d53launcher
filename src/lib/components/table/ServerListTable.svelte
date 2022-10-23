@@ -197,6 +197,20 @@
         header: 'Name',
         accessor: 'name'
 	},
+        {
+        header: 'Description',
+        accessor: 'description'
+	},
+    {
+        header: 'Creative',
+        /* d53todo - if true = checkmark, if false = x-icon */
+        accessor: 'creative'
+	},
+    {
+        header: 'Damage',
+        /* d53todo - if true = checkmark, if false = x-icon */
+        accessor: 'damage'
+	},
 	{
         header: 'Uptime',
         id: 'uptime',

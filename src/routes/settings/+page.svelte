@@ -34,9 +34,9 @@
 	{#if generated}
 		<pre class="bg-gray-700 mb-8">{generated}</pre>
 	{/if}
-	<h1 class="text-4xl font-bold py-4">Minetest Settings</h1>
+	<h1 class="text-4xl font-bold py-4">Settings</h1>
 	<span class="pb-4">
-		These settings get applied to <em>all</em> versions of Minetest.
+		These settings get applied to <em>all</em> versions of District 53.
 	</span>
 	{#if config}
 		{#each Object.keys(CONFIG_NODES) as section}
@@ -66,7 +66,7 @@
 			</div>
 			{/each}
 		{/each}
-		<Button on:click={async () => await save()} class="bg-emerald-500 hover:bg-emerald-400 p-4 font-bold text-white flex flex-col items-center">
+		<Button on:click={async () => await save()} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
 			Save!
 		</Button>
 	{:else}
