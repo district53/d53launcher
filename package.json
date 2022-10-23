@@ -3,8 +3,8 @@
 	"version": "0.0.5",
 	"private": true,
 	"scripts": {
-		"dev": "npm run tauri dev",
-		"build": "npm run tauri build",
+		"dev": "yarn tauri dev",
+		"build": "yarn tauri build",
 		"tauri": "tauri",
 		"preview": "vite preview",
 		"sveltekit:dev": "vite dev",

@@ -15,11 +15,11 @@ trusted AppImage files for Linux (that I know of).
 ```
 git clone https://github.com/district53/d53launcher
 cd d53launcher
-npm install
-npm run dev
+yarn install
+yarn dev
 ```
 
-Use `npm run build` to build a self-contained binary **for your current distribution**. Cross builds do not work in Tauri at the moment.
+Use `yarn build` to build a self-contained binary **for your current distribution**. Cross builds do not work in Tauri at the moment.
 
 ## How does it work
 - Tauri apps use a native web view component to load the application (which is actually just a fancy webpage)
