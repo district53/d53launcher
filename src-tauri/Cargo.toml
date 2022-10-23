@@ -1,11 +1,11 @@
 [package]
-name = "MTLauncher"
+name = "D53Launcher"
 version = "0.0.5"
-description = "Alternative Minetest Launcher"
+description = "District53 Launcher"
 authors = ["recluse4615"]
 license = "LGPL-2.0-only"
-repository = "https://github.com/minetest-world/mtlauncher"
-default-run = "MTLauncher"
+repository = "https://github.com/district53/d53launcher"
+default-run = "D53Launcher"
 edition = "2021"
 rust-version = "1.57"
 

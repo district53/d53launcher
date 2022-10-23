@@ -192,7 +192,7 @@
 		<div class="w-full h-full flex items-center justify-center flex-col text-center">
 			<span class="text-2xl font-bold">First time?</span>
 			<span class="w-96 py-4">
-					Welcome to the Minetest Launcher. Before we get started, you need to <strong>set a password</strong> to locally encrypt some sensitive settings (passwords for servers, etc.)
+					Welcome to the District 53 Launcher. Before we get started, you need to <strong>set a password</strong> to locally encrypt some sensitive settings (passwords for servers, etc.)
 			</span>
 			<div class="w-64">
 				<div class="pb-4">
@@ -214,7 +214,7 @@
 		<div class="w-full h-full flex items-center justify-center flex-col text-center">
 			<span class="text-2xl font-bold">Login</span>
 			<span class="w-96 py-4">
-				Welcome to the Minetest Launcher. Please enter your password to decrypt your user data.
+				Welcome to the District 53 Launcher. Please enter your password to decrypt your user data.
 			</span>
 			<div class="w-64">
 				<div class="pb-4">

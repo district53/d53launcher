@@ -3,7 +3,7 @@ import { fetch as tFetch } from '@tauri-apps/api/http';
 let serverCache = false;
 export async function getServers(force = false) {
     if (force || !serverCache) {
-        let res = await tFetch(`https://servers.minetest.net/list`);
+        let res = await tFetch(`https://serverlist.mainnet.sh/list`);
         serverCache = res.data.list.map(serv => {
             return {
                 fullAddress: `${serv.address || ''}:${serv.port || 30000}`,

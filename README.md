@@ -1,4 +1,4 @@
-# Minetest Launcher
+# District 53 Launcher
 
 **NOTE:** Here be dragons. This is _very_ early in development, and is **not** production-ready.
 
@@ -13,8 +13,8 @@ trusted AppImage files for Linux (that I know of).
 
 ## From source
 ```
-git clone ...
-cd mtlauncher
+git clone https://github.com/district53/d53launcher
+cd d53launcher
 npm install
 npm run dev
 ```
