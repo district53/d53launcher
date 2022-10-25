@@ -66,8 +66,15 @@
 	}
 </script>
 
-<div>
-	<div class="flex flex-row">
+<div class="h-full flex items-center">
+    <div class="grow"></div>
+    <div class="py-3 px-3  border border-dark hover:bg-darkest cursor-pointer hover:border hover:border-gray-700 flex flex-row items-center w-fit ">
+        <div class="grow">
+            <div class="text-sm">profile1</div>
+            <div class="font-mono text-xs text-orange ">SPACELPYtxRSQom48QvsQa7E1HRfSBx33u</div>
+        </div>
+        </div>  
+	<!-- <div class="flex flex-row hidden">
 		<div class="pr-1">
 			<TextBox placeholder="Username" bind:value={$username} />
 		</div>
@@ -81,9 +88,6 @@
 				{/if}
 			</div>
 		</div>
-	</div>
+	</div> -->
 
-	{#if !hasProfile}
-		<Checkbox bind:checked={$saveIdentity} label="Save Profile" />
-	{/if}
 </div>

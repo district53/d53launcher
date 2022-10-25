@@ -133,7 +133,7 @@
 	{#if passwordAdded}
 		<Navbar>
 			<svelte:fragment slot="left">
-				<NavbarItem href="#" label="Profile" />
+				<NavbarItem href="/" label="Profile" />
 				<!--<NavbarItem href="/news" label="News" />-->
 				<NavbarItem href="/games" label="Play Offline" />        		
 				<NavbarItem href="/servers" label="Play Online" />
@@ -154,7 +154,7 @@
 				<slot />
 			</div>
 		</div>
-		<div class="fixed w-full z-20 bottom-0 h-24 bg-darkest">
+		<div class="fixed w-full z-20 bottom-0 h-26 bg-darkest">
 			<div class="w-full grid grid-cols-3 gap-4 px-8 py-4">
 				<div class="flex flex-col">
 					<div class="text-lg font-bold text-white pb-1">
@@ -187,9 +187,7 @@
 					{/if}
 				</div>
 				<div class="flex flex-col">
-					{#if $selectedServer.hasOwnProperty('address')}
 						<ProfileSelector username={username} password={password} saveIdentity={saveIdentity} />
-					{/if}
 				</div>
 			</div>
 		</div>
@@ -198,7 +196,7 @@
 			<span class="text-2xl font-bold">First time?</span>
 			<span class="w-96 py-4">
 					Welcome to the District 53 Launcher. <br>
-					Before we get started, you need to <strong>set a password</strong> to locally encrypt some sensitive settings (passwords for servers, etc.)
+					Before we get started, you need to <strong>set a password</strong> to locally encrypt some sensitive settings (passwords for servers, mnemonics, etc.)
 			</span>
 			<div class="w-64">
 				<div class="pb-4">

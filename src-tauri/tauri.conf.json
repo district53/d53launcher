@@ -40,6 +40,7 @@
                 "renameFile": true,
                 "scope": [
                     "$APP/preferences.json",
+                    "$APP/wallets.json",
                     "$APP/user.dat",
                     "$APP/minetest.mtlauncher.conf",
                     "$APP/minetest.merged.conf",
@@ -78,7 +79,7 @@
                 "icons/icon.icns",
                 "icons/icon.ico"
             ],
-            "identifier": "world.minetest.mtlauncher",
+            "identifier": "d53launcher",
             "longDescription": "",
             "macOS": {
                 "entitlements": null,
