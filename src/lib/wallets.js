@@ -55,9 +55,8 @@ let walletsCache = false;
 export async function getWallets() {
     if (!walletsCache) {
         walletsCache = await fileBackedStore('wallets.json', {
-            wallets: [
-                {name:"profile1", address:"1"}
-            ]
+            wallets: [],
+            selected: {name: "", address: ""}
         });
     }
     return walletsCache;

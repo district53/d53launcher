@@ -5,3 +5,4 @@ export const selectedServer = writable({});
 export const selectedWallet = writable({});
 
 export let preferences = false;
+export let wallets = false;

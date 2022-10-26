@@ -3,12 +3,14 @@
     import { selectedServer } from '$lib/stores';
     import { onMount, onDestroy } from 'svelte';
 	import { writable } from 'svelte/store';
+    import { getWallets } from '$lib/wallets.js';
 
-
+    
     import TextBox from '$lib/components/element/form/TextBox.svelte';
     import Checkbox from '$lib/components/element/form/Checkbox.svelte';
     import Key from '$lib/icon/Key.svelte';
-
+    
+    let wallets;
     let profiles;
     let hasProfile = false;
     let unsubscribeServer, unsubscribeUserdata;
@@ -18,7 +20,10 @@
     export let saveIdentity = writable(true);
 
     onMount(async() => {
+        (await getWallets()).subscribe(val => wallets = val);
         profiles = await getUserdata();
+
+
 
         unsubscribeServer = selectedServer.subscribe(val => {
             let prof = $profiles;
@@ -65,15 +70,20 @@
         $password = res;
 	}
 </script>
-
-<div class="h-full flex items-center">
-    <div class="grow"></div>
-    <div class="py-3 px-3  border border-dark hover:bg-darkest cursor-pointer hover:border hover:border-gray-700 flex flex-row items-center w-fit ">
-        <div class="grow">
-            <div class="text-sm">profile1</div>
-            <div class="font-mono text-xs text-orange ">SPACELPYtxRSQom48QvsQa7E1HRfSBx33u</div>
-        </div>
-        </div>  
+<div>
+    {#if wallets}
+        {#if wallets.selected}
+        <div class="h-full flex items-center">
+            <div class="grow"></div>
+            <div class="py-3 px-3  border border-dark hover:bg-darkest cursor-pointer hover:border hover:border-gray-700 flex flex-row items-center w-fit ">
+                <div class="grow">
+                    <div class="text-sm">{wallets.selected.name}</div>
+                    <div class="font-mono text-xs text-orange ">{wallets.selected.address}</div>
+                </div>
+            </div>  </div>
+            {/if}
+    {/if}
+</div>
 	<!-- <div class="flex flex-row hidden">
 		<div class="pr-1">
 			<TextBox placeholder="Username" bind:value={$username} />
@@ -89,5 +99,3 @@
 			</div>
 		</div>
 	</div> -->
-
-</div>

@@ -4,6 +4,17 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
+		<script>
+			window.global = window;
+		</script>
+		<script type="module">
+			import process from "process";
+			import EventEmitter from "events";
+			import {Buffer} from "buffer";
+			window.Buffer = Buffer;
+			window.process = process;
+			window.EventEmitter = EventEmitter;
+		</script>
 		%sveltekit.head%
 	</head>
 	<body class="bg-dark text-neutral-200 min-h-screen">
