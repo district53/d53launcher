@@ -11,6 +11,12 @@
     let password = "";
     let name = "";
 
+    let thirdword = "";
+    let sixthword = "";
+    let ninthword = "";
+
+    let step = 1;
+
     async function refreshMnemonic() {
         let bip39 = await import("bip39")
         mnemonic = bip39.generateMnemonic()
@@ -45,8 +51,13 @@
     });
 
 </script>
-<div class="bg-darkest py-6 border border-darkest px-4 max-w-2xl mx-auto">
-    <h2 class="text-xl font-bold py-1">Create wallet</h2>
+<div class="bg-darkest py-1 border border-darkest px-4 max-w-2xl mx-auto">
+    <div class="flex flex-row">
+        <h2 class="text-xl font-bold pb-1 pt-6">Create wallet</h2>
+        <div class="grow"></div>
+        <button class="cursor-pointer hover:text-red-400 pt-2" on:click={close}>✕</button>
+    </div>
+    {#if step == 1}
 <div class="py-3">
     <h6>Name</h6>
     <input type="text" class="px-2 py-1 bg-dark text-sm my-2" name="" bind:value={name} placeholder="Name of your wallet" id="">
@@ -75,8 +86,36 @@
 {#if mnemonic.length > 0 && password.length > 0 && name.length > 0}
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="bg-solar-orange bg-solar-orange-hover px-4 py-1 font-bold text-white flex flex-col items-center w-fit cursor-pointer"
+on:click={() => step = 2}>
+    Next
+</div>
+{/if}
+{:else}
+<div class="py-6">
+    <div class="pb-6">Confirm the words of your mnemonic.</div>
+<div class="flex flex-row space-x-4 w-fit mx-auto pb-6 mb-6">
+    <div>
+        <div class="py-2">The third word</div>
+        <input type="text" bind:value={thirdword} class={`w-28 text-center ${thirdword == mnemonic.split(" ")[2]? 'bg-[#62b7aa]' : 'bg-dark'}`}>
+    </div>
+    <div>
+        <div class="py-2">The sixth word</div>
+        <input type="text" bind:value={sixthword} class={`w-28 text-center ${sixthword == mnemonic.split(" ")[5]? 'bg-[#62b7aa]' : 'bg-dark'}`}>
+    </div>
+    <div>
+        <div class="py-2">The ninth word</div>
+        <input type="text" bind:value={ninthword} class={`w-28 text-center ${ninthword == mnemonic.split(" ")[8]? 'bg-[#62b7aa]' : 'bg-dark'}`}>
+    </div>
+</div></div>
+{#if mnemonic.length > 0 && thirdword == mnemonic.split(" ")[2] && sixthword == mnemonic.split(" ")[5] && ninthword == mnemonic.split(" ")[8] }
+<div class="pb-6">
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class="bg-solar-orange bg-solar-orange-hover px-4 py-1 font-bold text-white flex flex-col items-center w-fit cursor-pointer"
 on:click={createWallet}>
     Create
 </div>
+</div>
 {/if}
+{/if}
+
 </div>

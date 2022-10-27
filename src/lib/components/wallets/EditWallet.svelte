@@ -28,8 +28,13 @@
 
 
 </script>
-<div class="bg-darkest py-6 border border-darkest px-4 max-w-2xl mx-auto">
-    <h2 class="text-xl font-bold py-1">Edit wallet</h2>
+<div class="bg-darkest pb-6 border border-darkest px-4 max-w-2xl mx-auto">
+    <div class="flex flex-row">
+        <h2 class="text-xl font-bold pb-1 pt-6">Edit wallet</h2>
+        <div class="grow"></div>
+        <button class="cursor-pointer hover:text-red-400 pt-2" on:click={close}>✕</button>
+    </div>
+    
 <div class="py-3">
     <h6>Name</h6>
     <input type="text" class="px-2 py-1 bg-dark text-sm my-2" bind:value={name}  name="" placeholder="Name of your wallet" id="">

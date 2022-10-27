@@ -27,10 +27,12 @@
     let passwordAdded = false;
 
     let tempPass, tempConfirmPass;
+	let wallets;
 
     onMount(async() => {
         preferences = await getPreferences();
         versions = await getVersions();
+		
         $selectedVersion = versions[0];
 
         selectedServer.subscribe(server => {
@@ -101,7 +103,7 @@
         if (await checkPassword(tempPass)) {
             loading = true;
             await getWallets(tempPass);
-
+			(await getWallets(tempPass)).subscribe(val => wallets = val)
             tempPass = null;
             loading = false;
             passwordAdded = true;
@@ -117,8 +119,8 @@
 	}
 
     async function doOpenServer(server, version) {
-        console.log(version);
-        await openServer(server, selectedWallet.address, selectedWallet.password, version.name);
+		console.log(wallets.selected.password)
+        await openServer(server, wallets.selected.address, wallets.selected.password, version.name);
 	}
 </script>
 {#if loading}
@@ -163,7 +165,11 @@
 					<VersionDropdown />
 				</div>
 				<div class="flex justify-center">
-					{#if $selectedVersion.hasOwnProperty('installed') && !$selectedVersion.installed}
+					{#if wallets.selected == undefined}
+					<button class="p-4 font-bold text-white flex flex-col items-center">
+						<div>Add a wallet before playing!</div>
+					</button>
+					{:else if $selectedVersion.hasOwnProperty('installed') && !$selectedVersion.installed}
 						<button on:click={async () => await install($selectedVersion)} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
 							{#if installing}
 								<div>Installing...</div>
@@ -182,7 +188,7 @@
 					{/if}
 				</div>
 				<div class="flex flex-col">
-						<ProfileSelector username={username} password={password} />
+						<ProfileSelector />
 				</div>
 			</div>
 		</div>
