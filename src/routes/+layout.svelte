@@ -3,12 +3,12 @@
 
     import { getPreferences } from '$lib/preferences.js';
 
-    import { selectedServer, selectedVersion } from '$lib/stores.js';
+    import { selectedServer, selectedVersion, selectedWallet } from '$lib/stores.js';
+	import {getWallets, checkPassword, hasWalletsFile} from '$lib/wallets'
 
     import { openServer } from '$lib/shell.js';
 
     import { onMount } from 'svelte';
-    import { hasUserdata, checkPassword, getUserdata, setServerIdentity } from '$lib/userdata';
     import { writable } from 'svelte/store';
 
     import ProfileSelector from '$lib/components/ProfileSelector.svelte';
@@ -43,7 +43,7 @@
             }
         });
 
-        firstStart = !(await hasUserdata());
+        firstStart = !(await hasWalletsFile());
 
         loading = false;
 	})
@@ -53,7 +53,6 @@
 
     let username = writable('');
     let password = writable('');
-    let saveIdentity = writable(false);
 
     import Navbar from '$lib/components/nav/Navbar.svelte';
     import NavbarItem from '$lib/components/nav/NavbarItem.svelte';
@@ -87,7 +86,7 @@
 
         loading = true;
         // load userdata for the first time, which will init and encrypt a blank file
-        await getUserdata(tempPass);
+        await getWallets(tempPass);
 
         // not needed anymore, userdata is in memory (unencrypted)
         tempPass = null;
@@ -101,7 +100,7 @@
     async function login() {
         if (await checkPassword(tempPass)) {
             loading = true;
-            await getUserdata(tempPass);
+            await getWallets(tempPass);
 
             tempPass = null;
             loading = false;
@@ -117,14 +116,9 @@
 		if (event.keyCode == 13 && tempPass) login();
 	}
 
-    async function doOpenServer(server, username, password, saveIdentity, version) {
+    async function doOpenServer(server, version) {
         console.log(version);
-        if (saveIdentity) {
-            console.log('Saving identity...');
-			await setServerIdentity(server, username, password);
-		}
-
-        await openServer(server, username, password, version.name);
+        await openServer(server, selectedWallet.address, selectedWallet.password, version.name);
 	}
 </script>
 {#if loading}
@@ -180,14 +174,15 @@
 							{/if}
 						</button>
 					{:else if $selectedServer.hasOwnProperty('address')}
-						<button on:click={() => doOpenServer($selectedServer, $username, $password, $saveIdentity, $selectedVersion)} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
+						<button on:click={() => doOpenServer($selectedServer, 
+						 $selectedVersion)} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
 							<div>Play</div>
 							<div class="font-medium text-sm">{$selectedServer.address}:{$selectedServer.port || 30000}</div>
 						</button>
 					{/if}
 				</div>
 				<div class="flex flex-col">
-						<ProfileSelector username={username} password={password} saveIdentity={saveIdentity} />
+						<ProfileSelector username={username} password={password} />
 				</div>
 			</div>
 		</div>

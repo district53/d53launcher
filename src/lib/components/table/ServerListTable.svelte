@@ -8,7 +8,6 @@
     import PlayerCount from '$lib/components/table/renderer/PlayerCount.svelte';
     import Time from '$lib/components/table/renderer/Time.svelte';
     import Favourite from '$lib/components/table/renderer/Favourite.svelte';
-    import HasIdentity from '$lib/components/table/renderer/HasIdentity.svelte';
     import FullLoader from '$lib/components/FullLoader.svelte';
 
     import { getServers } from '$lib/api/servers.js';
@@ -67,19 +66,6 @@
         cell: ({ row }, { pluginStates }) => createRender(Favourite, {
             toggled: true,
             onFavourite: async() => favouriteServer(row.original)
-        }),
-        plugins: {
-            sort: {
-                disable: true
-            }
-        }
-    },
-    {
-        type: 'display',
-        id: 'has_identity',
-        accessor: i => i,
-        cell: ({ row }, { pluginStates }) => createRender(HasIdentity, {
-            serverName: row.original.fullAddress
         }),
         plugins: {
             sort: {
@@ -146,19 +132,6 @@
         cell: ({ row }, { pluginStates }) => createRender(Favourite, {
             toggled: $favouriteServers.filter(serv => `${serv.address}:${serv.port || 30000}` === `${row.original.address}:${row.original.port || 30000}`).length,
             onFavourite: async() => favouriteServer(row.original)
-        }),
-        plugins: {
-            sort: {
-                disable: true
-            }
-        }
-    },
-    {
-        type: 'display',
-        id: 'has_identity',
-        accessor: i => i,
-        cell: ({ row }, { pluginStates }) => createRender(HasIdentity, {
-            serverName: row.original.fullAddress
         }),
         plugins: {
             sort: {

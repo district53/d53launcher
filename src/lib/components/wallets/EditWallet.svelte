@@ -2,6 +2,7 @@
     import {close} from '$lib/modal';
     import {onMount} from "svelte"
     import { getWallets } from '$lib/wallets.js';
+  import EyeButton from '$lib/components/wallets/EyeButton.svelte';
 
     let wallets;
     let wallet;
@@ -39,7 +40,7 @@
 </div>
 <div class="py-3">
     <h6>Password</h6>
-    <input type="password" class="px-2 py-1 bg-dark text-sm my-2" bind:value={password} name="" placeholder="New password" id="">
+    <div class="flex flex-row items-center"><input type="password" class="px-2 py-1 bg-dark text-sm my-2" bind:value={password} name="" placeholder="New password" id="">  </div>
 </div> 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="bg-solar-orange bg-solar-orange-hover px-4 py-1 font-bold text-white flex flex-col items-center w-fit cursor-pointer"

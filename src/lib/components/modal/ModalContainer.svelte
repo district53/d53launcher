@@ -9,6 +9,7 @@
 			<div class="flex min-h-full items-center justify-center text-center">
 				{#if !$modal.component}
 				<div class="relative transform overflow-hidden rounded-lg bg-darkest pointer-events-auto w-96">
+
 					<button class="absolute top-0 right-0 pr-4 pt-2 text-gray-500 hover:text-white hover:cursor-pointer" on:click={close}>
 						X
 					</button>
