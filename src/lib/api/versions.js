@@ -1,5 +1,5 @@
 import { BaseDirectory, readDir, createDir } from "@tauri-apps/api/fs";
-import {fetch as tFetch, ResponseType} from '@tauri-apps/api/http';
+import { fetch as tFetch, ResponseType } from '@tauri-apps/api/http';
 import { appDir, join } from "@tauri-apps/api/path";
 import { open } from "@tauri-apps/api/shell";
 import { type } from '@tauri-apps/api/os';
@@ -31,12 +31,9 @@ export async function getVersions(forceReload = false) {
         let versions;
         switch (platform) {
             case 'Linux':
-                versions = await tFetch(`https://api.github.com/repos/An0n3m0us/Minetest-AppImages/releases`);
-                break;
-
             case 'Darwin':
             case 'Windows_NT':
-                versions = await tFetch('https://api.github.com/repos/minetest/minetest/releases');
+                versions = await tFetch('https://api.github.com/repos/district53/minetest/releases');
                 break;
         }
 
@@ -92,8 +89,7 @@ export async function getInstalledVersions() {
         return entries
             .filter(ent => ent.children) //only get directories
             .map(ent => ent.name);
-    }
-    catch {
+    } catch {
         await createDir('versions', {
             dir: BaseDirectory.App,
             recursive: false

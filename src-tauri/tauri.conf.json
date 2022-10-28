@@ -7,8 +7,8 @@
         "distDir": "../build"
     },
     "package": {
-        "productName": "Minetest Launcher",
-        "version": "0.0.5-dev"
+        "productName": "D53 Launcher",
+        "version": "0.0.5"
     },
     "tauri": {
         "allowlist": {
@@ -54,10 +54,9 @@
                 "scope": [
                     "https://servers.minetest.net/list",
                     "https://serverlist.mainnet.sh/list",
-                    "https://github.com/minetest/minetest/releases/download/*",
-                    "https://api.github.com/repos/minetest/minetest/releases",
-                    "https://api.github.com/repos/An0n3m0us/Minetest-AppImages/releases",
-                    "https://api.github.com/repos/An0n3m0us/Minetest-AppImages/download/*",
+                    "https://github.com/minetest/district53/releases/download/*",
+                    "https://api.github.com/repos/district53/minetest/releases",
+                    "https://api.github.com/repos/district53/minetest/download/*",
                     "https://blog.minetest.net/feed.rss",
                     "https://content.minetest.net/api/*"
                 ]
