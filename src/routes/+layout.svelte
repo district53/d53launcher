@@ -119,7 +119,7 @@
 	}
 
     async function doOpenServer(server, version) {
-		console.log(wallets.selected.password)
+		console.log(version)
         await openServer(server, wallets.selected.address, wallets.selected.password, version.name);
 	}
 </script>
@@ -165,26 +165,28 @@
 					<VersionDropdown />
 				</div>
 				<div class="flex justify-center">
-					{#if wallets.selected == undefined}
-					<button class="p-4 font-bold text-white flex flex-col items-center">
-						<div>Add a wallet before playing!</div>
-					</button>
-					{:else if $selectedVersion.hasOwnProperty('installed') && !$selectedVersion.installed}
-						<button on:click={async () => await install($selectedVersion)} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
-							{#if installing}
-								<div>Installing...</div>
-								<div class="font-medium text-sm">please be patient :)</div>
-							{:else}
-								<div>Install</div>
-								<div class="font-medium text-sm">version {$selectedVersion.name}</div>
-							{/if}
+					{#if wallets != undefined}
+						{#if wallets.selected == undefined}
+						<button class="p-4 font-bold text-white flex flex-col items-center">
+							<div>Add a wallet before playing!</div>
 						</button>
-					{:else if $selectedServer.hasOwnProperty('address')}
-						<button on:click={() => doOpenServer($selectedServer, 
-						 $selectedVersion)} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
-							<div>Play</div>
-							<div class="font-medium text-sm">{$selectedServer.address}:{$selectedServer.port || 30000}</div>
-						</button>
+						{:else if $selectedVersion.hasOwnProperty('installed') && !$selectedVersion.installed}
+							<button on:click={async () => await install($selectedVersion)} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
+								{#if installing}
+									<div>Installing...</div>
+									<div class="font-medium text-sm">please be patient :)</div>
+								{:else}
+									<div>Install</div>
+									<div class="font-medium text-sm">version {$selectedVersion.name}</div>
+								{/if}
+							</button>
+						{:else if $selectedServer.hasOwnProperty('address')}
+							<button on:click={() => doOpenServer($selectedServer,
+							$selectedVersion)} class="bg-solar-orange bg-solar-orange-hover p-4 font-bold text-white flex flex-col items-center">
+								<div>Play</div>
+								<div class="font-medium text-sm">{$selectedServer.address}:{$selectedServer.port || 30000}</div>
+							</button>
+						{/if}
 					{/if}
 				</div>
 				<div class="flex flex-col">

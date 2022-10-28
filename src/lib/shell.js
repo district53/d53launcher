@@ -47,7 +47,7 @@ export async function openServer(server, username, password, version = '5.6.0') 
         password,
         '--go'
     ];
-
+    console.log(args)
     await openMinetest(version, args);
 }
 
