@@ -7,7 +7,7 @@
         "distDir": "../build"
     },
     "package": {
-        "productName": "Minetest Launcher",
+        "productName": "D53 Launcher",
         "version": "0.0.5"
     },
     "tauri": {
