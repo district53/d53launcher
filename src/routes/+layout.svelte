@@ -89,7 +89,7 @@
         loading = true;
         // load userdata for the first time, which will init and encrypt a blank file
         await getWallets(tempPass);
-
+		(await getWallets()).subscribe(val => wallets = val)
         // not needed anymore, userdata is in memory (unencrypted)
         tempPass = null;
         tempConfirmPass = null;
@@ -103,7 +103,7 @@
         if (await checkPassword(tempPass)) {
             loading = true;
             await getWallets(tempPass);
-			(await getWallets(tempPass)).subscribe(val => wallets = val)
+			(await getWallets()).subscribe(val => wallets = val)
             tempPass = null;
             loading = false;
             passwordAdded = true;
@@ -165,8 +165,7 @@
 					<VersionDropdown />
 				</div>
 				<div class="flex justify-center">
-					{#if wallets != undefined}
-						{#if wallets.selected == undefined}
+						{#if wallets.selected.address == ""}
 						<button class="p-4 font-bold text-white flex flex-col items-center">
 							<div>Add a wallet before playing!</div>
 						</button>
@@ -187,7 +186,6 @@
 								<div class="font-medium text-sm">{$selectedServer.address}:{$selectedServer.port || 30000}</div>
 							</button>
 						{/if}
-					{/if}
 				</div>
 				<div class="flex flex-col">
 						<ProfileSelector />

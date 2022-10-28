@@ -2,7 +2,7 @@
     import {close} from '$lib/modal';
     import {onMount} from "svelte"
     import { getWallets } from '$lib/wallets.js';
-  import EyeButton from '$lib/components/wallets/EyeButton.svelte';
+    import EyeButton from '$lib/components/wallets/EyeButton.svelte';
 
     let wallets;
     let wallet;

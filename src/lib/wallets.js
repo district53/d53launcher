@@ -89,7 +89,7 @@ export async function getWallets(password) {
     if (!walletsCache) {
         walletsCache = await walletStore('wallets.json', password, {
             wallets: [],
-            selected: {name: "", address: ""}
+            selected: {name: "", address: "", password: ""}
         });
     }
     return walletsCache;
