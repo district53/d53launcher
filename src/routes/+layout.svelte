@@ -133,10 +133,10 @@
 				<!--<NavbarItem href="/news" label="News" />-->
 				<NavbarItem href="/games" label="Play Offline" />        		
 				<NavbarItem href="/servers" label="Play Online" />
-				<NavbarItem href="#" label="CTF Rankings" />
-				<NavbarItem href="#" label="Virtual Land" />
-				<NavbarItem href="#" label="NFT" />
-				<NavbarItem href="#" label="Auctions" />
+				<!--<NavbarItem href="#" label="CTF Rankings" />-->
+				<!--<NavbarItem href="#" label="Virtual Land" />-->
+				<!--<NavbarItem href="#" label="NFT" />-->
+				<!--<NavbarItem href="#" label="Auctions" />-->
 				<NavbarItem href="/screenshots" label="Screenshots" />
 			</svelte:fragment>
 			<svelte:fragment slot="right">
