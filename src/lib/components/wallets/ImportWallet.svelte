@@ -8,7 +8,6 @@
 
         let mnemonic = "";
         let address = "";
-        let password = "";
         let name = "";
 
     async function refreshMnemonic(value) {
@@ -22,8 +21,7 @@
         let newWallet = {
             address: address,
             mnemonic: mnemonic,
-            name: name,
-            password: password
+            name: name
         }
         if (wallets.wallets.length == 0) {
             wallets.wallets = [newWallet]
@@ -61,11 +59,7 @@
     <h6>Mnemonic (required)</h6>
     <textarea class="text-xl font-bold bg-dark w-full  my-2 p-3" bind:value={mnemonic} on:keyup={(e) => {refreshMnemonic(e.currentTarget.value)}}></textarea>
 </div>
-<div class="py-3">
-    <h6>Password (required)</h6>
-    <input type="password" class="px-2 py-1 bg-dark text-sm my-2" bind:value={password} placeholder="Password for this wallet" id="">
-</div>
-{#if mnemonic.length > 0 && password.length > 0 && name.length > 0}
+{#if mnemonic.length > 0 && name.length > 0}
 <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="bg-solar-orange bg-solar-orange-hover px-4 py-1 font-bold text-white flex flex-col items-center w-fit cursor-pointer" on:click={importWallet}>
         Import

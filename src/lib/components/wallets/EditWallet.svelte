@@ -8,13 +8,11 @@
     let wallet;
 
     let name;
-    let password;
 
 	export let address;
 
     function editWallet() {
         wallet.name = name
-        wallet.password = password
         getWallets().then((ww) => {ww.set({selected:wallets.selected, wallets: wallets.wallets.filter((wallet) => {if (wallet.address == address) {return wallet } else {return wallet}})})})
         close()
     }
@@ -23,7 +21,6 @@
         (await getWallets()).subscribe(val => wallets = val);
         wallet = wallets.wallets.filter((wallet) => {if (wallet.address == address) {return wallet}})[0]
         name = wallet.name
-        password = wallet.password
     });
 
 
@@ -43,10 +40,6 @@
     <h6>Address</h6>
     <div class="text-orange text-sm font-mono my-2">{address}</div>
 </div>
-<div class="py-3">
-    <h6>Password</h6>
-    <div class="flex flex-row items-center"><input type="password" class="px-2 py-1 bg-dark text-sm my-2" bind:value={password} name="" placeholder="New password" id="">  </div>
-</div> 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="bg-solar-orange bg-solar-orange-hover px-4 py-1 font-bold text-white flex flex-col items-center w-fit cursor-pointer"
 on:click={editWallet}>

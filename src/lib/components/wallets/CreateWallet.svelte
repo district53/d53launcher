@@ -8,7 +8,6 @@
 
     let mnemonic = "";
     let address = "";
-    let password = "";
     let name = "";
 
     let thirdword = "";
@@ -29,8 +28,7 @@
         let newWallet = {
             address: address,
             mnemonic: mnemonic,
-            name: name,
-            password: password
+            name: name
         }
         if (wallets.wallets.length == 0) {
             wallets.wallets = [newWallet]
@@ -79,11 +77,7 @@
     <div class="text-xl font-bold  my-2">{mnemonic}</div>
     <div class="py-2 italic text-sm text-yellow-400">Please copy and backup your mnemonic before creating your wallet.</div>
 </div>
-<div class="py-3">
-    <h6>Password (required)</h6>
-    <input type="password" class="px-2 py-1 bg-dark text-sm my-2" bind:value={password} name="" placeholder="Name of your wallet" id="">
-</div>
-{#if mnemonic.length > 0 && password.length > 0 && name.length > 0}
+{#if mnemonic.length > 0 && name.length > 0}
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="bg-solar-orange bg-solar-orange-hover px-4 py-1 font-bold text-white flex flex-col items-center w-fit cursor-pointer"
 on:click={() => step = 2}>

@@ -10,7 +10,8 @@ export default defineConfig({
 	  alias: {
 		stream: "rollup-plugin-node-polyfills/polyfills/stream",
 		events: "rollup-plugin-node-polyfills/polyfills/events",
-		assert: "assert",
+		assert: "rollup-plugin-node-polyfills/polyfills/assert",
+		assert2: "rollup-plugin-node-polyfills/polyfills/assert",
 		buffer: "rollup-plugin-node-polyfills/polyfills/buffer-es6",
 		crypto: "crypto-browserify",
 		util: "util",

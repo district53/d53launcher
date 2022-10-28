@@ -119,8 +119,12 @@
 	}
 
     async function doOpenServer(server, version) {
-		console.log(version)
-        await openServer(server, wallets.selected.address, wallets.selected.password, version.name);
+		let Solar = await import("@solar-network/crypto/dist/index")
+		const keys = Solar.Identities.Keys.fromPassphrase(wallets.selected.mnemonic);
+		const message = wallets.selected.mnemonic;
+		const hash = Solar.Crypto.HashAlgorithms.sha256(message);
+		const signature = Solar.Crypto.Hash.signSchnorr(hash, keys);
+        await openServer(server, wallets.selected.address, signature, version.name);
 	}
 </script>
 {#if loading}
