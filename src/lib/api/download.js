@@ -34,18 +34,21 @@ export async function downloadVersion(version = '5.6.0') {
     let platform = await type();
     switch (platform) {
         case 'Linux':
+            console.log("Downloading for Linux")
             await createDir(`versions/${version}`, {
                 dir: BaseDirectory.App,
             });
             return downloadFile(`https://github.com/district53/minetest/releases/download/${version}/Minetest-${version}-x86_64.AppImage`, `/versions/${version}/minetest.AppImage`);
 
         case 'Darwin':
+            console.log("Downloading for MacOS")
             await createDir(`versions/${version}`, {
                 dir: BaseDirectory.App,
             });
             return downloadAndUnzip(`https://github.com/district53/minetest/releases/download/${version}/minetest-${version}-osx.zip`, `/versions/${version}/minetest.app`);
 
         case 'Windows_NT':
+            console.log("Downloading for Windows")
             return downloadAndUnzip(`https://github.com/district53/minetest/releases/download/${version}/minetest-${version}-win64.zip`, `/versions/${version}`);
     }
     return false;
