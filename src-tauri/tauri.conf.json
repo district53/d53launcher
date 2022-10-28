@@ -97,7 +97,7 @@
             }
         },
         "security": {
-            "csp": "default-src 'self'; font-src 'self' https://fonts.googleapis.com; img-src 'self' asset: https://asset.localhost https://blog.minetest.net https://content.minetest.net"
+            "csp": "default-src 'self' 'unsafe-eval' 'unsafe-inline'; font-src 'self' https://fonts.googleapis.com; img-src 'self' asset: https://asset.localhost https://blog.minetest.net https://content.minetest.net"
         },
         "updater": {
             "active": false
