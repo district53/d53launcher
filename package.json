@@ -27,6 +27,9 @@
 	"type": "module",
 	"dependencies": {
 		"@solar-network/crypto": "^4.0.2",
+		"@esbuild-plugins/node-globals-polyfill": "^0.1.1",
+		"@esbuild-plugins/node-modules-polyfill": "^0.1.4",
+		"@metamask/browser-passworder": "^3.0.0",
 		"@tauri-apps/api": "^1.0.2",
 		"assert": "^2.0.0",
 		"bip39": "^3.0.4",
